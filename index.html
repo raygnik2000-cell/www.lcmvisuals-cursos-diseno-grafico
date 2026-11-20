@@ -6,20 +6,20 @@
     <meta name="description" content="Cursos de diseño gráfico: Adobe Photoshop, Adobe Illustrator y Figma UI/UX con proyectos reales. Inscríbete en LCM Visuals.">
     <meta name="robots" content="index, follow">
     <!-- Google Search Console: pega aquí el código de verificación (etiqueta HTML) -->
-    <meta name="google-site-verification" content="PEAkVt1cJGWmZzXFqmRSvJTmQIxl9JY-oS-_xTA7_7Y">
+    <meta name="google-site-verification" content="PEGA_AQUI_EL_CODIGO_DE_SEARCH_CONSOLE">
     <script>
         // ===== CONFIGURACIÓN: reemplaza los valores entre corchetes y los IDs =====
         window.LCM_CONFIG = {
-            ga4: 'G-G-8BTM1EPMLK',          // ID de medición de Google Analytics 4
-            clarity: 'zgmrao0yqw',        // ID de proyecto de Microsoft Clarity
+            ga4: 'G-XXXXXXXXXX',          // ID de medición de Google Analytics 4
+            clarity: 'XXXXXXXXXX',        // ID de proyecto de Microsoft Clarity
             // Datos del responsable del tratamiento (aparecen en los textos legales)
-            razon: 'LCM Visuals S.A.S.',
-            nit: '1111546022',
-            domicilio: 'Calle 1 # 2-3',
-            ciudad: 'Santa Marta',
+            razon: '[RAZÓN SOCIAL O NOMBRE DEL TITULAR]',
+            nit: '[NIT O CÉDULA]',
+            domicilio: '[DIRECCIÓN]',
+            ciudad: '[CIUDAD]',
             correo: 'raygnik2000@gmail.com',
-            telefono: '316996022',
-            pasarela: 'Wompi',
+            telefono: '[TELÉFONO]',
+            pasarela: '[NOMBRE DE LA PASARELA DE PAGOS]',
             vigencia: '20 de noviembre de 2026'
         };
     </script>
@@ -198,7 +198,7 @@
     
         /* ===== Más aire entre zonas ===== */
         body > section[id] { margin: 0 auto; }
-        #metodologia { margin-bottom: 6rem; }
+        #contacto { margin-bottom: 6rem; }
 
         /* ===== Fondo animado de toda la página ===== */
         body::before {
@@ -336,6 +336,44 @@
         .pie-enlaces { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; font-size: .85rem; font-weight: 700; }
         .pie-enlaces a:hover { text-decoration: underline; }
         .pie-pequeno { margin-top: 1.5rem !important; padding-top: 1rem; border-top: 1px solid rgba(255, 255, 255, .15); font-size: .72rem !important; }
+
+        /* Metodología: tarjetas clicables */
+        [data-metodo] { cursor: pointer; }
+        [data-metodo]::after { content: "Ver más →"; display: block; margin-top: .75rem; font-size: .72rem; font-weight: 800; }
+
+        /* ===== Zonas nuevas ===== */
+        @keyframes m-cuadros { to { background-position: 48px 48px, 0 0; } }
+        @keyframes m-diag { to { background-position: 31.11px 0, 0 0; } }
+        @keyframes m-lunares { to { background-position: 48px 48px, 0 0; } }
+        #incluye {
+            background: conic-gradient(rgba(107, 203, 119, .16) 25%, transparent 0 50%, rgba(107, 203, 119, .16) 0 75%, transparent 0) 0 0 / 48px 48px, #DDF5EA;
+            animation: m-cuadros 24s linear infinite;
+        }
+        #como {
+            background: repeating-linear-gradient(45deg, rgba(166, 130, 255, .22) 0 2px, transparent 2px 22px) 0 0 / 31.11px 31.11px, #EFE9FF;
+            animation: m-diag 14s linear infinite;
+        }
+        #faq {
+            background: radial-gradient(rgba(255, 107, 107, .28) 6px, transparent 7px) 0 0 / 48px 48px, #FFE8EF;
+            animation: m-lunares 20s linear infinite;
+        }
+        #contacto {
+            background:
+                radial-gradient(circle at 18% 25%, rgba(255, 230, 0, .4), transparent 40%),
+                radial-gradient(circle at 85% 80%, rgba(255, 107, 107, .45), transparent 42%),
+                radial-gradient(circle at 70% 15%, rgba(77, 150, 255, .4), transparent 38%),
+                var(--tinta);
+            color: #fff;
+        }
+        #contacto h2, #contacto p { color: #fff !important; }
+
+        .icono { width: 3.25rem; height: 3.25rem; border-radius: 16px; display: grid; place-items: center; font-size: 1.6rem; border: 1px solid var(--linea); margin-bottom: .9rem; }
+        .paso-num { font-size: 3.2rem; font-weight: 800; letter-spacing: -.04em; line-height: 1; }
+        .faq summary { cursor: pointer; font-weight: 800; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+        .faq summary::-webkit-details-marker { display: none; }
+        .faq summary::after { content: "+"; font-size: 1.6rem; line-height: 1; transition: transform .25s ease; }
+        .faq[open] summary::after { transform: rotate(45deg); }
+        .faq p { margin-top: .75rem; font-size: .88rem; line-height: 1.6; }
     </style>
 </head>
 <body class="text-black min-h-screen flex flex-col selection:bg-[#FFE600]">
@@ -347,12 +385,14 @@
                 <div class="bg-black text-white p-2 font-bold text-xl">LCM</div>
                 <span class="font-bold text-lg tracking-wider">Visuals</span>
             </div>
-            <nav class="hidden md:flex gap-8 font-bold text-sm uppercase">
+            <nav class="hidden lg:flex gap-6 font-bold text-sm uppercase">
                 <a href="#crm-seccion" class="hover:underline text-blue-900 font-black">CRM Leads</a>
                 <a href="#cursos" class="hover:underline">Cursos</a>
                 <a href="#lecciones" class="hover:underline">Mis Cursos</a>
                 <a href="#software" class="hover:underline">Software</a>
                 <a href="#metodologia" class="hover:underline">Método</a>
+                <a href="#faq" class="hover:underline">FAQ</a>
+                <a href="#contacto" class="hover:underline">Contacto</a>
             </nav>
             <div class="flex gap-3 items-center">
                 <button type="button" id="btn-panel-admin" style="display: none;" onclick="abrirModal('modal-admin'); prepararCreacionCurso();" class="brutal-btn bg-[#6BCB77] text-black px-4 py-2 text-xs font-bold uppercase flex items-center gap-1">
@@ -393,6 +433,83 @@
         <span class="forma forma-roja" aria-hidden="true"></span>
         <span class="forma forma-azul" aria-hidden="true"></span>
         <span class="forma forma-aro" aria-hidden="true"></span>
+    </section>
+
+    <div class="divisor divisor-rio" aria-hidden="true"></div>
+
+    <!-- 6. CÓMO FUNCIONA -->
+    <section id="como" class="py-16 px-6 max-w-7xl mx-auto w-full border-t-4 border-black">
+        <div class="text-center mb-10">
+            <span class="bg-[#A682FF] text-white font-bold text-xs uppercase px-3 py-1 border-2 border-black inline-block mb-2 shadow-[2px_2px_0px_0px_#000]">En 4 pasos</span>
+            <h2 class="text-3xl font-bold uppercase">Cómo funciona</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="brutal-card bg-white p-6">
+                <div class="paso-num" style="color:#FFE600; -webkit-text-stroke: 2px #15131C;">01</div>
+                <h3 class="font-bold text-lg mt-3 mb-1">Crea tu cuenta</h3>
+                <p class="text-sm font-medium">Regístrate con tu correo en menos de un minuto.</p>
+            </div>
+            <div class="brutal-card bg-white p-6">
+                <div class="paso-num" style="color:#FF6B6B; -webkit-text-stroke: 2px #15131C;">02</div>
+                <h3 class="font-bold text-lg mt-3 mb-1">Elige tu curso</h3>
+                <p class="text-sm font-medium">Escoge Photoshop, Illustrator o Figma e inscríbete.</p>
+            </div>
+            <div class="brutal-card bg-white p-6">
+                <div class="paso-num" style="color:#4D96FF; -webkit-text-stroke: 2px #15131C;">03</div>
+                <h3 class="font-bold text-lg mt-3 mb-1">Aprende a tu ritmo</h3>
+                <p class="text-sm font-medium">Mira las lecciones, descarga el material y practica.</p>
+            </div>
+            <div class="brutal-card bg-white p-6">
+                <div class="paso-num" style="color:#6BCB77; -webkit-text-stroke: 2px #15131C;">04</div>
+                <h3 class="font-bold text-lg mt-3 mb-1">Marca tu avance</h3>
+                <p class="text-sm font-medium">Completa las lecciones y obtén tu certificado.</p>
+            </div>
+        </div>
+        <div class="text-center mt-10">
+            <button type="button" onclick="abrirModal('modal-register')" class="brutal-btn bg-[#15131C] text-white font-bold text-base px-8 py-4">Crear mi cuenta</button>
+        </div>
+    </section>
+
+    <div class="divisor divisor-rio" aria-hidden="true"></div>
+
+    <!-- 7. QUÉ INCLUYE -->
+    <section id="incluye" class="py-16 px-6 max-w-7xl mx-auto w-full border-t-4 border-black">
+        <div class="text-center mb-10">
+            <span class="bg-[#4D96FF] text-white font-bold text-xs uppercase px-3 py-1 border-2 border-black inline-block mb-2 shadow-[2px_2px_0px_0px_#000]">Todo en un lugar</span>
+            <h2 class="text-3xl font-bold uppercase">Qué incluye cada curso</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="brutal-card bg-white p-6">
+                <div class="icono" style="background:#FF6B6B"><i class="ph-bold ph-play-circle"></i></div>
+                <h3 class="font-bold text-lg mb-1">Videos lección a lección</h3>
+                <p class="text-sm font-medium">Clases en video organizadas por lecciones para que avances paso a paso.</p>
+            </div>
+            <div class="brutal-card bg-white p-6">
+                <div class="icono" style="background:#6BCB77"><i class="ph-bold ph-download"></i></div>
+                <h3 class="font-bold text-lg mb-1">Material descargable</h3>
+                <p class="text-sm font-medium">Archivos de práctica y recursos para trabajar junto a cada clase.</p>
+            </div>
+            <div class="brutal-card bg-white p-6">
+                <div class="icono" style="background:#FFD93D"><i class="ph-bold ph-chart-bar"></i></div>
+                <h3 class="font-bold text-lg mb-1">Seguimiento de progreso</h3>
+                <p class="text-sm font-medium">Marca cada lección completada y mira tu avance en porcentaje.</p>
+            </div>
+            <div class="brutal-card bg-white p-6">
+                <div class="icono" style="background:#4D96FF"><i class="ph-bold ph-folder-open"></i></div>
+                <h3 class="font-bold text-lg mb-1">Proyectos reales</h3>
+                <p class="text-sm font-medium">Ejercicios con entregables de nivel profesional para tu portafolio.</p>
+            </div>
+            <div class="brutal-card bg-white p-6">
+                <div class="icono" style="background:#A682FF"><i class="ph-bold ph-user-circle"></i></div>
+                <h3 class="font-bold text-lg mb-1">Área de alumno</h3>
+                <p class="text-sm font-medium">Un solo lugar con todos tus cursos, lecciones y recursos.</p>
+            </div>
+            <div class="brutal-card bg-white p-6">
+                <div class="icono" style="background:#FFE600"><i class="ph-bold ph-certificate"></i></div>
+                <h3 class="font-bold text-lg mb-1">Certificado</h3>
+                <p class="text-sm font-medium">Acredita tus habilidades técnicas al finalizar cada módulo.</p>
+            </div>
+        </div>
     </section>
 
     <div class="divisor divisor-rio" aria-hidden="true"></div>
@@ -551,22 +668,74 @@
     <section id="metodologia" class="py-16 px-6 max-w-7xl mx-auto w-full border-t-4 border-black">
         <h2 class="text-3xl font-bold uppercase mb-8 text-center">Metodología de estudio</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="brutal-card bg-white p-6">
+            <div class="brutal-card bg-white p-6" data-metodo="proyectos" role="button" tabindex="0">
                 <h3 class="font-bold text-lg mb-2">1. Proyectos reales</h3>
                 <p class="text-xs">Ejercicios prácticos con entregables de nivel profesional.</p>
             </div>
-            <div class="brutal-card bg-white p-6">
+            <div class="brutal-card bg-white p-6" data-metodo="kanban" role="button" tabindex="0">
                 <h3 class="font-bold text-lg mb-2">2. Tablero Kanban</h3>
                 <p class="text-xs">Seguimiento de tareas y revisiones en nuestro sistema LMS.</p>
             </div>
-            <div class="brutal-card bg-white p-6">
+            <div class="brutal-card bg-white p-6" data-metodo="certificado" role="button" tabindex="0">
                 <h3 class="font-bold text-lg mb-2">3. Certificado</h3>
                 <p class="text-xs">Acredita tus habilidades técnicas al finalizar cada módulo.</p>
             </div>
         </div>
     </section>
 
-        <footer class="pie">
+        <div class="divisor divisor-rio" aria-hidden="true"></div>
+
+    <!-- 9. PREGUNTAS FRECUENTES -->
+    <section id="faq" class="py-16 px-6 max-w-7xl mx-auto w-full border-t-4 border-black">
+        <div class="text-center mb-10">
+            <span class="bg-[#FF6B6B] text-white font-bold text-xs uppercase px-3 py-1 border-2 border-black inline-block mb-2 shadow-[2px_2px_0px_0px_#000]">Resolvemos tus dudas</span>
+            <h2 class="text-3xl font-bold uppercase">Preguntas frecuentes</h2>
+        </div>
+        <div class="max-w-3xl mx-auto space-y-4">
+            <details class="faq brutal-card bg-white p-6">
+                <summary>¿Necesito experiencia previa?</summary>
+                <p>No. Los cursos arrancan con la interfaz y las herramientas básicas, y avanzan con proyectos prácticos.</p>
+            </details>
+            <details class="faq brutal-card bg-white p-6">
+                <summary>¿Cuánto cuesta cada curso?</summary>
+                <p>Cada programa destacado cuesta $50.000 COP, como se muestra en el catálogo.</p>
+            </details>
+            <details class="faq brutal-card bg-white p-6">
+                <summary>¿Cómo accedo a mis cursos después de inscribirme?</summary>
+                <p>Inicia sesión y entra a “Mis cursos y progreso”: allí aparecen tus lecciones, videos y material.</p>
+            </details>
+            <details class="faq brutal-card bg-white p-6">
+                <summary>¿Puedo retirarme de un curso?</summary>
+                <p>Sí, con el botón “Salir” de tu área de alumno. Revisa nuestros <a href="#" onclick="abrirModal('modal-terminos'); return false;" class="underline font-bold">Términos y condiciones</a> para conocer el derecho de retracto.</p>
+            </details>
+            <details class="faq brutal-card bg-white p-6">
+                <summary>¿Qué programas necesito para practicar?</summary>
+                <p>Necesitas acceso al programa de cada curso (Photoshop, Illustrator o Figma). Consulta en el sitio oficial de cada uno los planes y pruebas disponibles.</p>
+            </details>
+            <details class="faq brutal-card bg-white p-6">
+                <summary>¿Cómo protegen mis datos?</summary>
+                <p>Tratamos tus datos según nuestra <a href="#" onclick="abrirModal('modal-datos'); return false;" class="underline font-bold">Política de tratamiento de datos</a>. Puedes cambiar tus preferencias de cookies en cualquier momento.</p>
+            </details>
+        </div>
+    </section>
+
+    <div class="divisor divisor-rio" aria-hidden="true"></div>
+
+    <!-- 10. CONTACTO -->
+    <section id="contacto" class="py-16 px-6 max-w-7xl mx-auto w-full border-t-4 border-black">
+        <div class="text-center max-w-2xl mx-auto">
+            <span class="bg-[#FFE600] text-black font-bold text-xs uppercase px-3 py-1 border-2 border-black inline-block mb-4">Empieza hoy</span>
+            <h2 class="text-3xl md:text-5xl font-bold uppercase mb-4">¿Listo para diseñar?</h2>
+            <p class="text-base font-medium mb-8">Elige tu primer curso o cuéntanos qué quieres aprender y te orientamos.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <button type="button" onclick="abrirModal('modal-info')" class="brutal-btn bg-[#FFE600] text-black font-bold text-base px-8 py-4">Quiero más información</button>
+                <a href="#cursos" class="brutal-btn bg-white text-black font-bold text-base px-8 py-4 inline-block">Ver los cursos</a>
+            </div>
+            <p class="text-sm font-medium mt-8 opacity-80">O escríbenos a <span data-legal="correo"></span></p>
+        </div>
+    </section>
+
+    <footer class="pie">
         <div class="pie-fila">
             <div>
                 <strong class="pie-marca">LCM Visuals</strong>
@@ -1715,6 +1884,28 @@
 
             document.addEventListener('lcm:cookies', function (e) { aplicar(e.detail); });
             aplicar(window.lcmCookies);
+        })();
+    </script>
+    <script>
+        // Metodología: al pulsar cada tarjeta se abre una ventana con más detalle
+        (function () {
+            var info = {
+                proyectos: ['1. Proyectos reales', 'Cada módulo termina con un proyecto que podrías mostrarle a un cliente: un fotomontaje, un logotipo vectorial o el prototipo de una app. Trabajas con briefs reales, aplicas lo aprendido paso a paso y vas armando tu portafolio desde el primer curso.'],
+                kanban: ['2. Tablero Kanban', 'Ves tus tareas organizadas en columnas: por hacer, en progreso y entregado. Cada lección y cada entrega tiene su estado, y recibes revisiones de tus trabajos en nuestro sistema LMS, así que siempre sabes qué sigue y qué te falta.'],
+                certificado: ['3. Certificado', 'Cuando completas todas las lecciones de un módulo recibes un certificado que acredita tus habilidades técnicas. Puedes añadirlo a tu hoja de vida y a tu perfil de LinkedIn. Es un certificado de participación, no un título de educación formal.']
+            };
+            document.querySelectorAll('[data-metodo]').forEach(function (tarjeta) {
+                function abrir() {
+                    var d = info[tarjeta.getAttribute('data-metodo')];
+                    document.getElementById('software-modal-title').innerText = d[0];
+                    document.getElementById('software-modal-desc').innerText = d[1];
+                    abrirModal('modal-software');
+                }
+                tarjeta.addEventListener('click', abrir);
+                tarjeta.addEventListener('keydown', function (e) {
+                    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); abrir(); }
+                });
+            });
         })();
     </script>
 </body>
