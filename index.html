@@ -3,10 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cursos de diseño gráfico: Adobe Photoshop, Adobe Illustrator y Figma UI/UX con proyectos reales. Inscríbete en LCM Visuals.">
+    <meta name="robots" content="index, follow">
+    <!-- Google Search Console: pega aquí el código de verificación (etiqueta HTML) -->
+    <meta name="google-site-verification" content="PEGA_AQUI_EL_CODIGO_DE_SEARCH_CONSOLE">
+    <script>
+        // ===== CONFIGURACIÓN: reemplaza los valores entre corchetes y los IDs =====
+        window.LCM_CONFIG = {
+            ga4: 'G-XXXXXXXXXX',          // ID de medición de Google Analytics 4
+            clarity: 'XXXXXXXXXX',        // ID de proyecto de Microsoft Clarity
+            // Datos del responsable del tratamiento (aparecen en los textos legales)
+            razon: '[RAZÓN SOCIAL O NOMBRE DEL TITULAR]',
+            nit: '[NIT O CÉDULA]',
+            domicilio: '[DIRECCIÓN]',
+            ciudad: '[CIUDAD]',
+            correo: '[CORREO DE CONTACTO]',
+            telefono: '[TELÉFONO]',
+            pasarela: '[NOMBRE DE LA PASARELA DE PAGOS]',
+            vigencia: '20 de noviembre de 2026'
+        };
+    </script>
     <title>LCM Visuals - Diseño y CRM</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap" rel="stylesheet">
 
     <!-- EmailJS SDK con tus credenciales -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
@@ -103,9 +123,6 @@
         #inicio {
             margin-top: 2rem;
             background:
-                radial-gradient(circle at 10% 22%, #FFE600 0 70px, transparent 71px),
-                radial-gradient(circle at 92% 82%, #FF6B6B 0 90px, transparent 91px),
-                radial-gradient(circle at 88% 14%, #4D96FF 0 40px, transparent 41px),
                 radial-gradient(circle, rgba(21, 19, 28, .14) 1.5px, transparent 2px) 0 0 / 22px 22px,
                 #FFFFFF;
         }
@@ -129,7 +146,7 @@
         #lecciones {
             background:
                 linear-gradient(90deg, transparent 56px, rgba(255, 107, 107, .5) 56px 58px, transparent 58px),
-                repeating-linear-gradient(transparent 0 31px, rgba(255, 107, 107, .2) 31px 32px),
+                repeating-linear-gradient(transparent 0 31px, rgba(255, 107, 107, .2) 31px 32px) 0 0 / 100% 32px,
                 #FFF0F0;
         }
 
@@ -146,7 +163,7 @@
         /* Metodología: rayas diagonales verdes, como una lista de tareas */
         #metodologia {
             background:
-                repeating-linear-gradient(135deg, rgba(107, 203, 119, .18) 0 14px, transparent 14px 28px),
+                repeating-linear-gradient(135deg, rgba(107, 203, 119, .18) 0 14px, transparent 14px 28px) 0 0 / 39.6px 39.6px,
                 #E6F7E9;
         }
 
@@ -208,12 +225,6 @@
         .divisor { position: relative; width: 100%; overflow: hidden; margin: 4rem 0; }
         .divisor-rio { height: 7.5rem; }
         .divisor-rio svg { display: block; }
-        .rio-texto {
-            font-family: 'Bricolage Grotesque', system-ui, sans-serif;
-            font-weight: 300; font-size: 18px; letter-spacing: .03em;
-            fill: var(--tinta);
-            paint-order: stroke; stroke: #fff; stroke-width: 3px; stroke-linejoin: round;
-        }
         .rio-onda { animation: rio-fluir 5s linear infinite; }
         .rio-onda-0 { --o: -28px; }
         .rio-onda-1 { --o: -80px; animation-duration: 8s; }
@@ -225,6 +236,106 @@
         @media (prefers-reduced-motion: reduce) {
             body::before, body::after, .rio-onda { animation: none !important; }
         }
+
+        /* ===== Más animaciones ===== */
+        @keyframes subir { from { opacity: 0; translate: 0 28px; } to { opacity: 1; translate: 0 0; } }
+        @keyframes flotar { from { transform: translate3d(0, 0, 0) scale(1); } to { transform: translate3d(14px, -22px, 0) scale(1.07); } }
+        @keyframes girar { to { transform: rotate(360deg); } }
+        @keyframes bambolear { from { transform: rotate(-2.5deg); } to { transform: rotate(1.5deg); } }
+        @keyframes meneo { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(-12deg) scale(1.1); } 75% { transform: rotate(10deg) scale(1.1); } }
+        @keyframes llenar { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+        @keyframes emerger { from { opacity: 0; transform: translateY(24px) scale(.94); } to { opacity: 1; transform: none; } }
+        @keyframes velo { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes m-hero { to { background-position: 22px 22px, 0 0; } }
+        @keyframes m-rejilla { to { background-position: 32px 32px, 32px 32px, 0 0; } }
+        @keyframes m-trama { to { background-position: 18px 18px, 0 0; } }
+        @keyframes m-renglones { to { background-position: 0 0, 0 32px, 0 0; } }
+        @keyframes m-luces { to { background-position: 0 0, 24px 24px, 0 0; } }
+        @keyframes m-rayas { to { background-position: 39.6px 0, 0 0; } }
+
+        /* Fondos de cada zona en movimiento lento */
+        #inicio { animation: m-hero 22s linear infinite; }
+        #crm-seccion { animation: m-rejilla 20s linear infinite; }
+        #cursos { animation: m-trama 14s linear infinite; }
+        #lecciones { animation: m-renglones 10s linear infinite; }
+        #software { animation: m-luces 18s linear infinite; }
+        #metodologia { animation: m-rayas 12s linear infinite; }
+
+        /* Hero: entrada escalonada y formas flotantes */
+        #inicio > :not(.forma) { position: relative; z-index: 1; animation: subir .9s cubic-bezier(.2, .7, .2, 1) both; }
+        #inicio > :nth-child(1) { animation-delay: .05s; }
+        #inicio > :nth-child(2) { animation-delay: .18s; }
+        #inicio > :nth-child(3) { animation-delay: .32s; }
+        #inicio > :nth-child(4) { animation-delay: .46s; }
+        .forma { position: absolute; z-index: 0; pointer-events: none; }
+        .forma-amarilla { left: 5%; top: 9%; width: 150px; height: 150px; border-radius: 50%; background: #FFE600; animation: flotar 7s ease-in-out infinite alternate; }
+        .forma-roja { right: 4%; bottom: 7%; width: 190px; height: 190px; border-radius: 50%; background: #FF6B6B; animation: flotar 9s ease-in-out -3s infinite alternate-reverse; }
+        .forma-azul { right: 10%; top: 8%; width: 84px; height: 84px; border-radius: 50%; background: #4D96FF; animation: flotar 6s ease-in-out -1s infinite alternate; }
+        .forma-aro { left: 10%; bottom: 12%; width: 70px; height: 70px; border: 6px solid #A682FF; border-radius: 16px; animation: girar 14s linear infinite; }
+        h1 span { animation: bambolear 3.5s ease-in-out infinite alternate; }
+        @media (max-width: 640px) { .forma { scale: .55; opacity: .85; } }
+
+        /* Botones, menú y tarjetas con respuesta al pasar el cursor */
+        .brutal-btn:hover { transform: translateY(-2px); }
+        header nav a { position: relative; text-decoration: none !important; }
+        header nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: -5px; height: 2px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform .25s ease; }
+        header nav a:hover::after { transform: scaleX(1); }
+        header .bg-black { transition: transform .25s ease; }
+        header .bg-black:hover { transform: rotate(-6deg) scale(1.08); }
+        .software-card:hover { transform: translateY(-6px) rotate(-2deg) scale(1.05); }
+        .software-card:nth-child(even):hover { transform: translateY(-6px) rotate(2deg) scale(1.05); }
+        #cursos .brutal-card:hover .text-3xl { display: inline-block; animation: meneo .6s ease; }
+        .w-full.bg-slate-200 > div { transform-origin: left; animation: llenar .9s cubic-bezier(.2, .7, .2, 1) both; }
+
+        /* Ventanas emergentes con entrada suave */
+        [id^="modal-"] { animation: velo .25s ease backwards; }
+        [id^="modal-"] .brutal-card { animation: emerger .4s cubic-bezier(.2, .9, .3, 1.2) backwards; }
+
+        /* Aparición al hacer scroll (la pone el script y luego la quita) */
+        body .rv { opacity: 0; translate: 0 32px; transition: opacity .7s ease, translate .7s cubic-bezier(.2, .7, .2, 1); }
+        body .rv.rv-in { opacity: 1; translate: 0 0; transition-delay: calc(var(--i, 0) * 80ms); }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation: none !important; transition: none !important; }
+        }
+
+        /* ===== Cookies ===== */
+        #cookie-banner {
+            position: fixed; left: 50%; bottom: 1rem; transform: translateX(-50%);
+            width: calc(100% - 2rem); max-width: 52rem; z-index: 45;
+            background: #fff; border: 1px solid var(--linea); border-radius: 28px;
+            box-shadow: 0 20px 50px -12px rgba(21, 19, 28, .35);
+            padding: 1.1rem 1.25rem; gap: 1rem; align-items: center; justify-content: space-between; flex-wrap: wrap;
+            animation: emerger .5s cubic-bezier(.2, .9, .3, 1.2) backwards;
+        }
+        .cookie-texto { flex: 1 1 18rem; }
+        .cookie-botones { display: flex; flex-wrap: wrap; gap: .6rem; }
+        #cookie-reabrir {
+            position: fixed; left: 1rem; bottom: 1rem; z-index: 40; width: 46px; height: 46px;
+            border-radius: 50%; background: #fff; border: 1px solid var(--linea) !important;
+            box-shadow: var(--sombra); font-size: 1.35rem; line-height: 1; cursor: pointer;
+            transition: transform .25s ease;
+        }
+        #cookie-reabrir:hover { transform: rotate(-18deg) scale(1.1); }
+        .cookie-fila { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: .7rem .9rem; border: 1px solid var(--linea); border-radius: 18px; background: #F4F4F8; cursor: pointer; }
+        .cookie-fila small { display: block; font-size: .72rem; opacity: .7; margin-top: .1rem; }
+        .cookie-fila input { width: 1.2rem; height: 1.2rem; accent-color: #15131C; flex: none; }
+
+        /* ===== Legal, pie de página y autorizaciones ===== */
+        .legal-cuerpo { max-height: 58vh; overflow-y: auto; padding-right: .5rem; font-size: .82rem; line-height: 1.6; }
+        .legal-cuerpo h4 { font-weight: 800; margin: 1rem 0 .25rem; font-size: .9rem; }
+        .legal-cuerpo ul { list-style: disc; padding-left: 1.2rem; }
+        .legal-cuerpo a, .aceptar-legal a, .aceptar-nota a { text-decoration: underline; font-weight: 700; }
+        .por-completar { background: #FFE600; color: #15131C; padding: 0 .25em; border-radius: 6px; }
+        .aceptar-legal { display: flex; gap: .6rem; align-items: flex-start; font-size: .72rem; line-height: 1.35; margin: .5rem 0; cursor: pointer; }
+        .aceptar-legal input { width: 1.1rem; height: 1.1rem; flex: none; margin-top: .1rem; accent-color: #15131C; }
+        .pie { width: calc(100% - 2rem); max-width: 80rem; margin: 0 auto 2rem; padding: 2rem; border-radius: 32px; background: var(--tinta); color: #fff; }
+        .pie-fila { display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: space-between; align-items: flex-start; }
+        .pie-marca { font-size: 1.25rem; font-weight: 800; letter-spacing: -.02em; }
+        .pie p { font-size: .8rem; opacity: .8; margin-top: .25rem; }
+        .pie-enlaces { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; font-size: .85rem; font-weight: 700; }
+        .pie-enlaces a:hover { text-decoration: underline; }
+        .pie-pequeno { margin-top: 1.5rem !important; padding-top: 1rem; border-top: 1px solid rgba(255, 255, 255, .15); font-size: .72rem !important; }
     </style>
 </head>
 <body class="text-black min-h-screen flex flex-col selection:bg-[#FFE600]">
@@ -256,7 +367,7 @@
                 </div>
 
                 <div id="auth-user-buttons" style="display: none;" class="flex items-center gap-3">
-                    <span id="user-display-name" class="text-xs font-bold uppercase bg-black text-white px-3 py-2 border-2 border-black"></span>
+                    <span id="user-display-name" data-clarity-mask="True" class="text-xs font-bold uppercase bg-black text-white px-3 py-2 border-2 border-black"></span>
                     <button type="button" onclick="cerrarSesion()" class="brutal-btn bg-[#FF6B6B] text-white px-4 py-2 text-xs font-bold uppercase flex items-center gap-1">
                         <i class="ph-bold ph-sign-out"></i> Cerrar sesión
                     </button>
@@ -278,12 +389,16 @@
             <a href="#cursos" class="brutal-btn bg-[#15131C] text-white font-bold text-base px-8 py-4 inline-block uppercase">Ver catálogo de cursos</a>
             <button type="button" onclick="abrirModal('modal-info')" class="brutal-btn bg-[#4D96FF] text-white font-bold text-base px-8 py-4 inline-block uppercase">Quiero más información</button>
         </div>
+        <span class="forma forma-amarilla" aria-hidden="true"></span>
+        <span class="forma forma-roja" aria-hidden="true"></span>
+        <span class="forma forma-azul" aria-hidden="true"></span>
+        <span class="forma forma-aro" aria-hidden="true"></span>
     </section>
 
     <div class="divisor divisor-rio" aria-hidden="true"></div>
 
     <!-- 1. MÓDULO CRM DE LEADS -->
-    <section id="crm-seccion" class="py-16 px-6 max-w-7xl mx-auto w-full border-t-4 border-black bg-white">
+    <section id="crm-seccion" data-clarity-mask="True" class="py-16 px-6 max-w-7xl mx-auto w-full border-t-4 border-black bg-white">
         <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
             <div>
                 <span class="bg-[#4D96FF] text-white font-bold text-xs uppercase px-3 py-1 border-2 border-black inline-block mb-2 shadow-[2px_2px_0px_0px_#000]">Módulo CRM</span>
@@ -451,8 +566,23 @@
         </div>
     </section>
 
+        <footer class="pie">
+        <div class="pie-fila">
+            <div>
+                <strong class="pie-marca">LCM Visuals</strong>
+                <p>Cursos de diseño gráfico con proyectos reales.</p>
+            </div>
+            <nav class="pie-enlaces" aria-label="Información legal">
+                <a href="#" onclick="abrirModal('modal-terminos'); return false;">Términos y condiciones</a>
+                <a href="#" onclick="abrirModal('modal-datos'); return false;">Tratamiento de datos</a>
+                <a href="#" onclick="abrirModal('modal-cookies'); return false;">Preferencias de cookies</a>
+            </nav>
+        </div>
+        <p class="pie-pequeno">© 2026 LCM Visuals. Contacto: <span data-legal="correo"></span></p>
+    </footer>
+
     <!-- MODALES -->
-    <div id="modal-nuevo-lead" style="display: none;" class="fixed inset-0 bg-black/70 z-50 items-center justify-center p-4">
+    <div id="modal-nuevo-lead" data-clarity-mask="True" style="display: none;" class="fixed inset-0 bg-black/70 z-50 items-center justify-center p-4">
         <div class="brutal-card bg-white p-6 w-full max-w-md text-black relative">
             <div class="flex justify-between items-center mb-4 pb-2 border-b-2 border-black">
                 <h3 class="font-bold text-base uppercase">Agregar nuevo contacto al CRM</h3>
@@ -479,12 +609,13 @@
                     <option value="Inscrito">Inscrito</option>
                     <option value="VIP">VIP</option>
                 </select>
+                <label class="aceptar-legal"><input type="checkbox" required><span>Confirmo que el titular autorizó el tratamiento de sus datos según la <a href="#" onclick="abrirModal('modal-datos'); return false;">Política de tratamiento de datos</a> y los <a href="#" onclick="abrirModal('modal-terminos'); return false;">Términos y condiciones</a>.</span></label>
                 <button type="submit" class="brutal-btn bg-[#6BCB77] text-black w-full py-2.5 font-bold uppercase text-xs mt-3">Guardar contacto</button>
             </form>
         </div>
     </div>
 
-    <div id="modal-pasarela" style="display: none;" class="fixed inset-0 bg-black/70 z-50 items-center justify-center p-4">
+    <div id="modal-pasarela" data-clarity-mask="True" style="display: none;" class="fixed inset-0 bg-black/70 z-50 items-center justify-center p-4">
         <div class="brutal-card bg-white p-6 w-full max-w-md text-black relative">
             <div class="flex justify-between items-center mb-4 pb-2 border-b-2 border-black">
                 <h3 class="font-bold text-base uppercase">Pasarela de pago segura</h3>
@@ -505,6 +636,7 @@
                     <input type="text" required placeholder="MM/AA" maxlength="5" class="border-2 border-black p-2 w-full text-xs font-medium bg-white">
                     <input type="password" required placeholder="CVV" maxlength="4" class="border-2 border-black p-2 w-full text-xs font-medium bg-white">
                 </div>
+                <label class="aceptar-legal"><input type="checkbox" required><span>Acepto los <a href="#" onclick="abrirModal('modal-terminos'); return false;">Términos y condiciones</a>, incluido el derecho de retracto, y la <a href="#" onclick="abrirModal('modal-datos'); return false;">Política de tratamiento de datos</a>.</span></label>
                 <button type="submit" class="brutal-btn bg-[#6BCB77] text-black w-full py-3 font-bold uppercase text-xs mt-4">Confirmar pago</button>
             </form>
         </div>
@@ -523,7 +655,7 @@
         </div>
     </div>
 
-    <div id="modal-admin" style="display: none;" class="fixed inset-0 bg-black/70 z-50 items-center justify-center p-4 overflow-y-auto">
+    <div id="modal-admin" data-clarity-mask="True" style="display: none;" class="fixed inset-0 bg-black/70 z-50 items-center justify-center p-4 overflow-y-auto">
         <div class="brutal-card bg-[#FFFDF7] p-6 w-full max-w-2xl my-8 text-black relative">
             <div class="flex justify-between items-center mb-6 pb-3 border-b-4 border-black">
                 <h3 id="admin-modal-title" class="font-bold text-xl uppercase tracking-wider">// CREAR NUEVO CURSO</h3>
@@ -560,7 +692,7 @@
         </div>
     </div>
 
-    <div id="modal-info" style="display: none;" class="fixed inset-0 bg-black/60 z-50 items-center justify-center p-4">
+    <div id="modal-info" data-clarity-mask="True" style="display: none;" class="fixed inset-0 bg-black/60 z-50 items-center justify-center p-4">
         <div class="brutal-card bg-[#FFE600] p-6 w-full max-w-lg text-black relative">
             <div class="flex justify-between items-center mb-6 pb-3 border-b-4 border-black">
                 <h3 class="font-bold text-xl uppercase tracking-wider">Más información</h3>
@@ -577,6 +709,7 @@
                     <option value="Adobe Illustrator">Adobe Illustrator</option>
                     <option value="Figma UI/UX">Figma UI/UX</option>
                 </select>
+                <label class="aceptar-legal"><input type="checkbox" required><span>He leído y acepto la <a href="#" onclick="abrirModal('modal-datos'); return false;">Política de tratamiento de datos</a> y los <a href="#" onclick="abrirModal('modal-terminos'); return false;">Términos y condiciones</a>. Autorizo el tratamiento de mis datos personales.</span></label>
                 <div class="flex justify-end gap-3 pt-3 border-t-2 border-black">
                     <button type="button" onclick="cerrarModal('modal-info')" class="brutal-btn bg-white text-black font-bold text-xs uppercase px-4 py-2.5">Cancelar</button>
                     <button type="submit" class="brutal-btn bg-[#6BCB77] text-black font-bold text-xs uppercase px-6 py-2.5">Enviar</button>
@@ -585,7 +718,7 @@
         </div>
     </div>
 
-    <div id="modal-login" style="display: none;" class="fixed inset-0 bg-black/60 z-50 items-center justify-center p-4">
+    <div id="modal-login" data-clarity-mask="True" style="display: none;" class="fixed inset-0 bg-black/60 z-50 items-center justify-center p-4">
         <div class="brutal-card bg-white p-6 w-full max-w-md">
             <div class="flex justify-between items-center mb-4 pb-2 border-b-2 border-black">
                 <h3 class="font-bold text-lg uppercase">Iniciar sesión</h3>
@@ -595,6 +728,7 @@
                 <input type="email" id="login-email" required placeholder="Correo" class="border-2 border-black p-2 w-full mb-3 text-sm font-medium bg-white">
                 <input type="password" id="login-password" required placeholder="Contraseña" class="border-2 border-black p-2 w-full mb-4 text-sm font-medium bg-white">
                 <button type="submit" class="brutal-btn bg-[#6BCB77] text-black w-full py-2.5 font-bold uppercase text-xs mb-3">Entrar</button>
+                <p class="text-[10px] text-center mb-3 aceptar-nota">Al continuar aceptas la <a href="#" onclick="abrirModal('modal-datos'); return false;">Política de tratamiento de datos</a> y los <a href="#" onclick="abrirModal('modal-terminos'); return false;">Términos y condiciones</a>.</p>
             </form>
             <div class="pt-3 border-t-2 border-black bg-[#FFFDF7] p-3 border-2 border-black">
                 <span class="text-[10px] font-bold uppercase block mb-2 text-center text-slate-700">Credenciales de prueba</span>
@@ -606,7 +740,7 @@
         </div>
     </div>
 
-    <div id="modal-register" style="display: none;" class="fixed inset-0 bg-black/60 z-50 items-center justify-center p-4">
+    <div id="modal-register" data-clarity-mask="True" style="display: none;" class="fixed inset-0 bg-black/60 z-50 items-center justify-center p-4">
         <div class="brutal-card bg-white p-6 w-full max-w-md">
             <div class="flex justify-between items-center mb-4 pb-2 border-b-2 border-black">
                 <h3 class="font-bold text-lg uppercase">Crear cuenta</h3>
@@ -616,8 +750,145 @@
                 <input type="text" id="reg-name" required placeholder="Nombre completo" class="border-2 border-black p-2 w-full mb-3 text-sm font-medium bg-white">
                 <input type="email" id="reg-email" required placeholder="Correo" class="border-2 border-black p-2 w-full mb-3 text-sm font-medium bg-white">
                 <input type="password" id="reg-password" required placeholder="Contraseña" class="border-2 border-black p-2 w-full mb-4 text-sm font-medium bg-white">
+                <label class="aceptar-legal"><input type="checkbox" required><span>He leído y acepto la <a href="#" onclick="abrirModal('modal-datos'); return false;">Política de tratamiento de datos</a> y los <a href="#" onclick="abrirModal('modal-terminos'); return false;">Términos y condiciones</a>. Autorizo el tratamiento de mis datos personales.</span></label>
                 <button type="submit" class="brutal-btn bg-[#FF6B6B] text-white w-full py-2.5 font-bold uppercase text-xs">Registrarse</button>
             </form>
+        </div>
+    </div>
+
+    <!-- AVISO DE COOKIES -->
+    <div id="cookie-banner" style="display: none;" role="dialog" aria-live="polite" aria-label="Aviso de cookies">
+        <div class="cookie-texto">
+            <strong class="text-base">🍪 Usamos cookies</strong>
+            <p class="text-xs font-medium mt-1">Las necesarias mantienen tu sesión, tus cursos y tu progreso. Con tu permiso también usamos cookies de analítica y marketing para mejorar la página. <a href="#" onclick="abrirModal('modal-datos'); return false;" class="underline font-bold">Más información</a>.</p>
+        </div>
+        <div class="cookie-botones">
+            <button type="button" onclick="lcmCookiesElegir('rechazar')" class="brutal-btn bg-white px-4 py-2 text-xs font-bold">Solo necesarias</button>
+            <button type="button" onclick="abrirModal('modal-cookies')" class="brutal-btn bg-[#FFE600] px-4 py-2 text-xs font-bold">Personalizar</button>
+            <button type="button" onclick="lcmCookiesElegir('aceptar')" class="brutal-btn bg-[#15131C] text-white px-4 py-2 text-xs font-bold">Aceptar todas</button>
+        </div>
+    </div>
+
+    <button type="button" id="cookie-reabrir" style="display: none;" onclick="abrirModal('modal-cookies')" aria-label="Preferencias de cookies" title="Preferencias de cookies">🍪</button>
+
+    <div id="modal-cookies" style="display: none;" class="fixed inset-0 bg-black/60 z-50 items-center justify-center p-4">
+        <div class="brutal-card bg-white p-6 w-full max-w-md text-black relative">
+            <div class="flex justify-between items-center mb-4 pb-2 border-b-2 border-black">
+                <h3 class="font-bold text-lg">Preferencias de cookies</h3>
+                <button type="button" onclick="cerrarModal('modal-cookies')" class="font-bold text-lg" aria-label="Cerrar">✕</button>
+            </div>
+            <div class="space-y-3 text-sm">
+                <label class="cookie-fila"><span><strong>Necesarias</strong><small>Sesión, cursos, progreso y CRM. Siempre activas.</small></span><input type="checkbox" checked disabled></label>
+                <label class="cookie-fila"><span><strong>Analítica</strong><small>Google Analytics y Microsoft Clarity: visitas, clics y grabaciones de sesión con datos sensibles enmascarados.</small></span><input type="checkbox" id="ck-analitica"></label>
+                <label class="cookie-fila"><span><strong>Marketing</strong><small>Para mostrarte información de cursos que te interesen.</small></span><input type="checkbox" id="ck-marketing"></label>
+            </div>
+            <div class="flex justify-end gap-3 pt-4 mt-4 border-t-2 border-black">
+                <button type="button" onclick="lcmCookiesElegir('aceptar')" class="brutal-btn bg-white px-4 py-2 text-xs font-bold">Aceptar todas</button>
+                <button type="button" onclick="lcmCookiesElegir('guardar')" class="brutal-btn bg-[#6BCB77] text-black px-5 py-2 text-xs font-bold">Guardar preferencias</button>
+            </div>
+        </div>
+    </div>
+
+        <!-- TEXTOS LEGALES -->
+    <div id="modal-datos" style="display: none;" class="fixed inset-0 bg-black/60 z-50 items-center justify-center p-4">
+        <div class="brutal-card bg-white p-6 w-full max-w-2xl text-black relative">
+            <div class="flex justify-between items-center mb-4 pb-2 border-b-2 border-black">
+                <h3 class="font-bold text-lg">Política de tratamiento de datos personales</h3>
+                <button type="button" onclick="cerrarModal('modal-datos')" class="font-bold text-lg" aria-label="Cerrar">✕</button>
+            </div>
+            <div class="legal-cuerpo">
+                <p><em>Vigente desde el <span data-legal="vigencia"></span>.</em></p>
+                <h4>1. Responsable del tratamiento</h4>
+                <p><span data-legal="razon"></span>, identificado con NIT/C.C. <span data-legal="nit"></span>, con domicilio en <span data-legal="domicilio"></span>, <span data-legal="ciudad"></span>, Colombia. Correo: <span data-legal="correo"></span>. Teléfono: <span data-legal="telefono"></span> (en adelante, “LCM Visuals”).</p>
+                <h4>2. Marco legal</h4>
+                <p>Esta política se rige por el artículo 15 de la Constitución Política, la Ley Estatutaria 1581 de 2012, el Decreto 1377 de 2013 (compilado en el Decreto 1074 de 2015) y las demás normas que los modifiquen o complementen.</p>
+                <h4>3. Datos que recolectamos</h4>
+                <ul>
+                    <li>Datos de contacto: nombre, correo electrónico y teléfono.</li>
+                    <li>Datos de la relación con nosotros: curso de interés, origen del contacto, etapa comercial, cursos inscritos y progreso en las lecciones.</li>
+                    <li>Datos de pago: los procesa la pasarela <span data-legal="pasarela"></span>; LCM Visuals no almacena el número completo de tu tarjeta.</li>
+                    <li>Datos técnicos y de navegación: dirección IP, dispositivo, navegador, páginas visitadas y clics, mediante cookies y herramientas de analítica.</li>
+                </ul>
+                <p>No recolectamos datos sensibles. Este sitio está dirigido a mayores de 18 años; no tratamos datos de menores sin autorización de sus representantes legales.</p>
+                <h4>4. Finalidades</h4>
+                <ul>
+                    <li>Gestionar tu registro, inscripción, acceso a los cursos y seguimiento de tu progreso.</li>
+                    <li>Responder tus solicitudes de información y enviarte correos de bienvenida y comunicaciones sobre el servicio.</li>
+                    <li>Administrar nuestro CRM y hacer seguimiento comercial de contactos y estudiantes.</li>
+                    <li>Enviarte información comercial o promocional, si lo autorizas; puedes oponerte en cualquier momento.</li>
+                    <li>Medir y mejorar el sitio con Google Analytics y Microsoft Clarity, solo con tu consentimiento de cookies de analítica.</li>
+                    <li>Cumplir obligaciones legales, contables y tributarias, y prevenir fraudes.</li>
+                </ul>
+                <h4>5. Autorización</h4>
+                <p>Tratamos tus datos con tu autorización previa, expresa e informada, que otorgas al marcar la casilla de aceptación, registrarte o enviarnos un formulario. Puedes revocarla en cualquier momento, salvo que exista un deber legal o contractual de conservar los datos.</p>
+                <h4>6. Derechos del titular</h4>
+                <ul>
+                    <li>Conocer, actualizar y rectificar tus datos.</li>
+                    <li>Solicitar prueba de la autorización otorgada.</li>
+                    <li>Ser informado del uso que se ha dado a tus datos.</li>
+                    <li>Presentar quejas ante la Superintendencia de Industria y Comercio (SIC) por infracciones a la ley.</li>
+                    <li>Revocar la autorización y/o solicitar la supresión de tus datos cuando no se respeten los principios y garantías legales.</li>
+                    <li>Acceder de forma gratuita a tus datos personales.</li>
+                </ul>
+                <h4>7. Encargados, transmisión y transferencia</h4>
+                <p>Para operar el sitio usamos proveedores que pueden tratar datos por nuestra cuenta: EmailJS (envío de correos), Google LLC (Analytics, Search Console y Fonts), Microsoft (Clarity), servicios de CDN para cargar recursos del sitio (Tailwind, jsDelivr, unpkg) y la pasarela de pagos indicada arriba. Algunos están ubicados fuera de Colombia, incluido Estados Unidos. Con tu autorización, tus datos pueden ser transmitidos o transferidos a ellos solo para las finalidades de esta política.</p>
+                <h4>8. Cookies y tecnologías similares</h4>
+                <p>Usamos cookies necesarias (sesión, cursos, progreso y preferencias), de analítica (Google Analytics y Microsoft Clarity, que puede registrar clics, desplazamientos y grabaciones de sesión con los campos sensibles enmascarados) y de marketing. Solo activamos las de analítica y marketing si las aceptas, y puedes cambiar tu elección cuando quieras desde el botón 🍪 o el enlace “Preferencias de cookies” al final de la página.</p>
+                <h4>9. Seguridad</h4>
+                <p>Adoptamos medidas técnicas, humanas y administrativas razonables para proteger tus datos contra pérdida, acceso no autorizado o uso indebido. Ningún sistema es completamente infalible.</p>
+                <h4>10. Consultas y reclamos</h4>
+                <p>Para ejercer tus derechos escribe a <span data-legal="correo"></span>, indicando tu identificación, la descripción de tu solicitud, tu dirección de contacto y los documentos que quieras hacer valer. Las consultas se responden en máximo 10 días hábiles, prorrogables por 5 más. Los reclamos se resuelven en máximo 15 días hábiles, prorrogables por hasta 8 más. Solo puedes acudir a la SIC después de agotar este trámite con nosotros.</p>
+                <h4>11. Vigencia y cambios</h4>
+                <p>Conservaremos tus datos mientras exista la relación con nosotros y durante el tiempo que exijan las normas aplicables. Si hacemos cambios sustanciales a esta política, te lo informaremos en el sitio o por correo electrónico.</p>
+            </div>
+            <div class="flex justify-end pt-4 mt-4 border-t-2 border-black">
+                <button type="button" onclick="cerrarModal('modal-datos')" class="brutal-btn bg-[#6BCB77] text-black px-5 py-2 text-xs font-bold">Entendido</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-terminos" style="display: none;" class="fixed inset-0 bg-black/60 z-50 items-center justify-center p-4">
+        <div class="brutal-card bg-white p-6 w-full max-w-2xl text-black relative">
+            <div class="flex justify-between items-center mb-4 pb-2 border-b-2 border-black">
+                <h3 class="font-bold text-lg">Términos y condiciones</h3>
+                <button type="button" onclick="cerrarModal('modal-terminos')" class="font-bold text-lg" aria-label="Cerrar">✕</button>
+            </div>
+            <div class="legal-cuerpo">
+                <p><em>Última actualización: <span data-legal="vigencia"></span>.</em></p>
+                <h4>1. Quiénes somos y aceptación</h4>
+                <p>Este sitio es operado por <span data-legal="razon"></span> (NIT/C.C. <span data-legal="nit"></span>), en adelante “LCM Visuals”. Al navegar, registrarte o inscribirte en un curso aceptas estos términos. Si no estás de acuerdo, no uses el sitio.</p>
+                <h4>2. Servicio</h4>
+                <p>LCM Visuals ofrece cursos en línea de diseño gráfico (por ejemplo Adobe Photoshop, Adobe Illustrator y Figma UI/UX), con lecciones, videos y material descargable, y un área de alumno para seguir tu progreso.</p>
+                <h4>3. Registro y cuenta</h4>
+                <p>Debes ser mayor de 18 años y darnos información veraz. Tu cuenta es personal e intransferible, y eres responsable de la actividad realizada con ella. Avísanos de inmediato si sospechas un uso no autorizado.</p>
+                <h4>4. Precios, inscripción y pago</h4>
+                <p>Los precios se muestran en pesos colombianos (COP) y pueden cambiar sin afectar las inscripciones ya pagadas. Los pagos se procesan a través de <span data-legal="pasarela"></span>, un tercero independiente. Recibirás una confirmación por correo electrónico al completar la inscripción.</p>
+                <h4>5. Derecho de retracto</h4>
+                <p>En las compras a distancia puedes ejercer el derecho de retracto dentro de los cinco (5) días hábiles siguientes a la celebración del contrato, conforme al artículo 47 de la Ley 1480 de 2011 y sus modificaciones, escribiendo a <span data-legal="correo"></span>. El reembolso se hará dentro del plazo legal. El retracto no aplica en los casos exceptuados por la ley, por ejemplo cuando la prestación del servicio haya comenzado con tu acuerdo.</p>
+                <h4>6. Cancelación de la inscripción</h4>
+                <p>Puedes retirarte de un curso desde tu área de alumno. Retirarte pierde el acceso al curso y no genera reembolso automático, sin perjuicio de tus derechos legales como consumidor.</p>
+                <h4>7. Propiedad intelectual</h4>
+                <p>Los contenidos del sitio y de los cursos (videos, textos, material, marca y diseño) pertenecen a LCM Visuals o a sus licenciantes. Te damos una licencia personal, limitada, no exclusiva y no transferible para verlos con fines de aprendizaje. Queda prohibido copiarlos, redistribuirlos, venderlos o compartir tu acceso. Adobe, Photoshop, Illustrator, Figma y otras marcas pertenecen a sus titulares; LCM Visuals no está afiliada a ellos.</p>
+                <h4>8. Uso aceptable</h4>
+                <p>No puedes usar el sitio para vulnerar su seguridad, extraer contenido de forma automatizada, suplantar a otras personas, subir contenido ilícito o dañino, ni interferir con su funcionamiento.</p>
+                <h4>9. Contenido y enlaces de terceros</h4>
+                <p>Algunas lecciones enlazan videos o materiales alojados por terceros (por ejemplo YouTube). No controlamos esos sitios ni respondemos por su contenido o disponibilidad.</p>
+                <h4>10. Certificados y resultados</h4>
+                <p>Los certificados acreditan tu participación y cumplimiento de los módulos; no son un título de educación formal. No garantizamos resultados laborales o económicos específicos.</p>
+                <h4>11. Disponibilidad y responsabilidad</h4>
+                <p>Hacemos esfuerzos razonables para mantener el sitio disponible, pero puede haber interrupciones por mantenimiento o causas ajenas. En la medida permitida por la ley, LCM Visuals no responde por daños indirectos derivados del uso del sitio, sin afectar los derechos irrenunciables del consumidor ni la garantía legal.</p>
+                <h4>12. Datos personales y cookies</h4>
+                <p>Tratamos tus datos conforme a nuestra <a href="#" onclick="abrirModal('modal-datos'); return false;">Política de tratamiento de datos personales</a>. Puedes gestionar tus cookies desde el botón 🍪 del sitio.</p>
+                <h4>13. Cambios</h4>
+                <p>Podemos actualizar estos términos. Publicaremos la versión vigente en el sitio con su fecha de actualización; si continúas usándolo, entendemos que la aceptas.</p>
+                <h4>14. Peticiones, quejas y reclamos</h4>
+                <p>Escríbenos a <span data-legal="correo"></span> o llama al <span data-legal="telefono"></span>. También puedes acudir a la Superintendencia de Industria y Comercio.</p>
+                <h4>15. Ley aplicable</h4>
+                <p>Estos términos se rigen por las leyes de la República de Colombia. Las controversias se someterán a las autoridades competentes en <span data-legal="ciudad"></span>, sin perjuicio de las competencias de la SIC en materia de consumo.</p>
+            </div>
+            <div class="flex justify-end pt-4 mt-4 border-t-2 border-black">
+                <button type="button" onclick="cerrarModal('modal-terminos')" class="brutal-btn bg-[#6BCB77] text-black px-5 py-2 text-xs font-bold">Entendido</button>
+            </div>
         </div>
     </div>
 
@@ -1233,13 +1504,9 @@
         });
     </script>
     <script>
-        // Ríos divisores: una línea fina que serpentea, con el texto flotando sobre ella
+        // Ríos divisores: una línea fina que serpentea
         (function () {
             var NS = 'http://www.w3.org/2000/svg';
-            var FRASE = 'LCM Visuals ✦ Diseña ✦ Aprende ✦ Crea ✦\u00A0';
-            var quieto = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            var rios = [];
-            var animando = false;
 
             function el(nombre, attrs) {
                 var e = document.createElementNS(NS, nombre);
@@ -1261,54 +1528,18 @@
                 var W = caja.clientWidth || 800;
                 var fase = i * 1.3;
                 var svg = el('svg', { width: W, height: 120, viewBox: '0 0 ' + W + ' 120' });
-                caja.appendChild(svg);
-
-                var principal = el('path', { id: 'rio-' + i, d: camino(W, fase, 0), fill: 'none',
-                    stroke: '#15131C', 'stroke-width': 2.5, 'stroke-linecap': 'round' });
-                svg.appendChild(principal);
-
+                svg.appendChild(el('path', { d: camino(W, fase, 0), fill: 'none',
+                    stroke: '#15131C', 'stroke-width': 2.5, 'stroke-linecap': 'round' }));
                 [[14, '3 11', 0.55], [26, '24 16', 0.4]].forEach(function (r, j) {
                     svg.appendChild(el('path', { d: camino(W, fase, r[0]), fill: 'none', stroke: '#15131C',
                         'stroke-width': 1.5, 'stroke-linecap': 'round', 'stroke-dasharray': r[1],
                         opacity: r[2], 'class': 'rio-onda rio-onda-' + j }));
                 });
-
-                // Medir cuánto ocupa una repetición de la frase
-                var medida = el('text', { 'class': 'rio-texto' });
-                medida.textContent = FRASE;
-                svg.appendChild(medida);
-                var p = medida.getComputedTextLength() || 320;
-                svg.removeChild(medida);
-
-                var texto = el('text', { 'class': 'rio-texto', dy: -9 });
-                var tp = el('textPath', { href: '#rio-' + i });
-                var veces = Math.ceil((principal.getTotalLength() + p) / p) + 1;
-                tp.textContent = FRASE.repeat(veces);
-                tp.setAttribute('startOffset', -p);
-                texto.appendChild(tp);
-                svg.appendChild(texto);
-
-                return { tp: tp, p: p };
-            }
-
-            function mover(t) {
-                rios.forEach(function (r) {
-                    r.tp.setAttribute('startOffset', (-r.p + ((t * 0.03) % r.p)).toFixed(1));
-                });
-                requestAnimationFrame(mover);
+                caja.appendChild(svg);
             }
 
             function iniciar() {
-                rios = [];
-                document.querySelectorAll('.divisor-rio').forEach(function (caja, i) {
-                    rios.push(construir(caja, i));
-                });
-                if (quieto) {
-                    rios.forEach(function (r) { r.tp.setAttribute('startOffset', 0); });
-                } else if (!animando) {
-                    animando = true;
-                    requestAnimationFrame(mover);
-                }
+                document.querySelectorAll('.divisor-rio').forEach(construir);
             }
 
             var espera;
@@ -1316,7 +1547,174 @@
                 clearTimeout(espera);
                 espera = setTimeout(iniciar, 200);
             });
-            (document.fonts && document.fonts.load ? Promise.all([document.fonts.load('300 18px "Bricolage Grotesque"'), document.fonts.ready]) : Promise.resolve()).then(iniciar, iniciar);
+            iniciar();
+        })();
+    </script>
+    <script>
+        // Aparición suave al hacer scroll: títulos, zonas y tarjetas estáticas
+        (function () {
+            if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+            var obs = new IntersectionObserver(function (entradas) {
+                entradas.forEach(function (e) {
+                    if (!e.isIntersecting) return;
+                    var el = e.target;
+                    obs.unobserve(el);
+                    el.classList.add('rv-in');
+                    setTimeout(function () {
+                        el.classList.remove('rv', 'rv-in');
+                        el.style.removeProperty('--i');
+                    }, 1500);
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -5% 0px' });
+
+            var grupos = new Map();
+            document.querySelectorAll('body > section[id]:not(#inicio), body > section[id]:not(#inicio) h2, body > section[id]:not(#inicio) .brutal-card').forEach(function (el) {
+                if (el.closest('#cursos-container')) return;
+                var n = grupos.get(el.parentElement) || 0;
+                grupos.set(el.parentElement, n + 1);
+                el.style.setProperty('--i', Math.min(n, 5));
+                el.classList.add('rv');
+                obs.observe(el);
+            });
+        })();
+    </script>
+    <script>
+        // Cookies: la elección se guarda en una cookie (y en localStorage como respaldo)
+        (function () {
+            var CLAVE = 'lcm_cookies';
+            var banner = document.getElementById('cookie-banner');
+            var boton = document.getElementById('cookie-reabrir');
+
+            function leer() {
+                try {
+                    var m = document.cookie.match(/(?:^|; )lcm_cookies=([^;]*)/);
+                    if (m) return JSON.parse(decodeURIComponent(m[1]));
+                } catch (e) {}
+                try { return JSON.parse(localStorage.getItem(CLAVE)); } catch (e) { return null; }
+            }
+
+            function guardar(c) {
+                var v = JSON.stringify(c);
+                try { document.cookie = CLAVE + '=' + encodeURIComponent(v) + '; max-age=31536000; path=/; SameSite=Lax'; } catch (e) {}
+                try { localStorage.setItem(CLAVE, v); } catch (e) {}
+                window.lcmCookies = c;
+                document.dispatchEvent(new CustomEvent('lcm:cookies', { detail: c }));
+            }
+
+            function mostrar(c) {
+                banner.style.display = c ? 'none' : 'flex';
+                boton.style.display = c ? 'block' : 'none';
+                document.getElementById('ck-analitica').checked = !!(c && c.analitica);
+                document.getElementById('ck-marketing').checked = !!(c && c.marketing);
+            }
+
+            window.lcmCookiesElegir = function (accion) {
+                var c = { necesarias: true, analitica: false, marketing: false, fecha: new Date().toISOString() };
+                if (accion === 'aceptar') { c.analitica = true; c.marketing = true; }
+                if (accion === 'guardar') {
+                    c.analitica = document.getElementById('ck-analitica').checked;
+                    c.marketing = document.getElementById('ck-marketing').checked;
+                }
+                guardar(c);
+                mostrar(c);
+                cerrarModal('modal-cookies');
+            };
+
+            var actual = leer();
+            window.lcmCookies = actual;
+            mostrar(actual);
+        })();
+    </script>
+    <script>
+        // Rellena los datos del responsable en los textos legales
+        (function () {
+            var C = window.LCM_CONFIG || {};
+            document.querySelectorAll('[data-legal]').forEach(function (el) {
+                var v = C[el.getAttribute('data-legal')] || '';
+                el.textContent = v;
+                if (/^\[/.test(v)) el.classList.add('por-completar');
+            });
+        })();
+
+        // Google Analytics 4 y Microsoft Clarity: solo se cargan si la persona acepta cookies de analítica
+        (function () {
+            var C = window.LCM_CONFIG || {};
+            function valido(v) { return v && !/^(G-X+|X+)$/.test(v); }
+            var gaListo = false, clListo = false;
+
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            window.gtag = gtag;
+            gtag('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
+
+            function cargarGA() {
+                if (gaListo || !valido(C.ga4)) return;
+                gaListo = true;
+                var s = document.createElement('script');
+                s.async = true;
+                s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(C.ga4);
+                document.head.appendChild(s);
+                gtag('js', new Date());
+                gtag('config', C.ga4);
+            }
+
+            function cargarClarity() {
+                if (clListo || !valido(C.clarity)) return;
+                clListo = true;
+                (function (c, l, a, r, i, t, y) {
+                    c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+                    t = l.createElement(r); t.async = 1; t.src = 'https://www.clarity.ms/tag/' + i;
+                    y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+                })(window, document, 'clarity', 'script', C.clarity);
+            }
+
+            function borrarCookies(patron) {
+                document.cookie.split(';').forEach(function (c) {
+                    var n = c.split('=')[0].trim();
+                    if (patron.test(n)) document.cookie = n + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
+                });
+            }
+
+            function aplicar(c) {
+                var an = !!(c && c.analitica), mk = !!(c && c.marketing);
+                if (valido(C.ga4)) window['ga-disable-' + C.ga4] = !an;
+                gtag('consent', 'update', {
+                    analytics_storage: an ? 'granted' : 'denied',
+                    ad_storage: mk ? 'granted' : 'denied',
+                    ad_user_data: mk ? 'granted' : 'denied',
+                    ad_personalization: mk ? 'granted' : 'denied'
+                });
+                if (an) { cargarGA(); cargarClarity(); } else if (gaListo) { borrarCookies(/^_ga/); }
+                if (clListo) {
+                    window.clarity('consentv2', { ad_Storage: mk ? 'granted' : 'denied', analytics_Storage: an ? 'granted' : 'denied' });
+                }
+            }
+
+            // Eventos de conversión (sin datos personales). Cambia 'inscripcion' por 'purchase' cuando el pago sea real.
+            function evento(nombre, params) {
+                if (gaListo && window.lcmCookies && window.lcmCookies.analitica) gtag('event', nombre, params || {});
+            }
+            function envolver(nombre, antes, despues) {
+                var original = window[nombre];
+                if (typeof original !== 'function') return;
+                window[nombre] = function () {
+                    var datos = antes ? antes.apply(null, arguments) : null;
+                    var r = original.apply(this, arguments);
+                    if (despues) despues(datos, arguments);
+                    return r;
+                };
+            }
+            envolver('procesarRegistro', null, function () { evento('sign_up', { method: 'formulario' }); });
+            envolver('procesarFormularioInfo', null, function () { evento('generate_lead', { origen: 'formulario_info' }); });
+            envolver('abrirPasarelaPago', null, function (d, a) {
+                if (document.getElementById('modal-pasarela').style.display === 'flex') evento('begin_checkout', { item_name: a[0], value: a[1], currency: 'COP' });
+            });
+            envolver('procesarPagoInterno', function () {
+                return document.getElementById('pago-curso-nombre-hidden').value;
+            }, function (curso) { evento('inscripcion', { item_name: curso, currency: 'COP' }); });
+
+            document.addEventListener('lcm:cookies', function (e) { aplicar(e.detail); });
+            aplicar(window.lcmCookies);
         })();
     </script>
 </body>
